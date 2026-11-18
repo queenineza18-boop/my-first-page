@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My First Page</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #171a21;
+      --text: #e8eaf0;
+      --muted: #9aa3b2;
+      --accent: #7c9cff;
+      --border: #262b36;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1000px 600px at 50% -10%, #1c2233 0%, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    main {
+      width: 100%;
+      max-width: 620px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(124, 156, 255, 0.35);
+      background: rgba(124, 156, 255, 0.1);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 5vw, 34px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p { color: var(--muted); margin: 0 0 16px; }
+
+    .counter {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 28px 0 32px;
+    }
+
+    button {
+      font: inherit;
+      font-weight: 600;
+      color: #0f1115;
+      background: var(--accent);
+      border: none;
+      border-radius: 10px;
+      padding: 11px 20px;
+      cursor: pointer;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+
+    button:hover { filter: brightness(1.1); }
+    button:active { transform: translateY(1px); }
+
+    #count {
+      font-variant-numeric: tabular-nums;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    code {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      color: var(--text);
+      background: #0f1115;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1px 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">Hello, Freebuff</span>
+    <h1>Your first page is running</h1>
+    <p>
+      This is one file: <code>index.html</code>. The layout is HTML, the colours are CSS,
+      and the button below is a few lines of JavaScript. No installs, no build step.
+    </p>
+
+    <div class="counter">
+      <button id="bump" type="button">Click me</button>
+      <span>Clicks: <span id="count">0</span></span>
+    </div>
+
+    <h2>Try changing something</h2>
+    <ul>
+      <li>Edit the <code>h1</code> text and save — the preview refreshes.</li>
+      <li>Change <code>--accent</code> at the top of the <code>&lt;style&gt;</code> block to recolour the button.</li>
+      <li>Ask me to add a section, a photo, or a whole second page.</li>
+    </ul>
+  </main>
+
+  <script>
+    const button = document.getElementById("bump");
+    const count = document.getElementById("count");
+    let clicks = 0;
+
+    button.addEventListener("click", () => {
+      clicks += 1;
+      count.textContent = clicks;
+    });
+  </script>
+</body>
+</html>
